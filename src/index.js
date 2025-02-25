@@ -1,6 +1,6 @@
 import './style.css';
-import {renderRestaurantInfo} from './about.js';
-import {renderMenu} from './menu.js';
+import {Item} from './itemObject.js';
+import {Project} from './projectObject.js';
 import hardenImage from './chef.jpg';
 
 const image = document.createElement('img');
@@ -18,11 +18,18 @@ function renderHome() {
   subHeader.id = 'subHeader';
 
   div.appendChild(subHeader);
-  div.appendChild(image);
+  div.appendChild(image); 
 }
 renderHome();
 
 console.log('logging something for the restaurant');
+
+const item = new Item('work on popup modal', 'add a popup modal for item detail', '3/1/2025','1' );
+item.detail();
+
+
+
+
 
 
 //set up nav button on-click events
