@@ -1,5 +1,5 @@
 //create new project popup modal
-export function createPopup(id) {
+export default function createPopup(id) {
   let popupNode = document.querySelector(id);
   let overlay = popupNode.querySelector('.overlay');
   let closeBtn = popupNode.querySelector('.close-btn');

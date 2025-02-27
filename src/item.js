@@ -1,5 +1,5 @@
 //item class for to do items duplication
-export class Item {
+export default class Item {
   constructor(title, description, dueDate, priority){
     this.title = title;
     this.description = description;
@@ -12,11 +12,4 @@ export class Item {
     }
 
 
-  // const infoDiv = document.createElement('div');
-  // infoDiv.textContent = 'our restaurant cooks bigs for breakfast lunch and dinner';
-
-  // const contentDiv = document.querySelector('#content');
-
-  // contentDiv.appendChild(infoDiv);
-
-}
+  }
