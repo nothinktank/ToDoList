@@ -9,7 +9,7 @@ export class Project {
 }
 
 export function addNewProject(projectList){
-    let popupNode = document.querySelector('#popup');
+    let popupNode = document.querySelector('#project-popup');
     let name = document.querySelector('#name');
     let priority = document.querySelector('#priority');
     

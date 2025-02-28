@@ -1,8 +1,8 @@
 import './style.css';
-import Item from './item.js';
+import {Item, addNewItem} from './item.js';
 import {Project, addNewProject} from './project.js';
 
-import createPopup from './newProjectPopup.js';
+import createPopup from './newItemPopup.js';
 // import hardenImage from './chef.jpg';
 
 const image = document.createElement('img');
@@ -35,24 +35,6 @@ console.log('logging something for the restaurant');
 const item = new Item('work on popup modal', 'add a popup modal for item detail', '3/1/2025','1' );
 item.detail();
 
-//add new project to project list array when click submit button
-//   function addNewProject(){
-//     let popupNode = document.querySelector('#popup');
-//     let name = document.querySelector('#name');
-//     let priority = document.querySelector('#priority');
-    
-//     if (name.value) {
-//       let newProject = new Project(name.value, priority.value);
-//       projectList.push(newProject);
-//       // this.displayBook(nb);
-
-//     name.value = '';
-//     priority.value = '';
-  
-//     popupNode.classList.remove('active');
-//   }
-// }
-// let newProject = new Project();
 document.querySelector('.submit-btn').addEventListener('click', ()=>{
   addNewProject(projectList);
   console.log(projectList);
@@ -60,32 +42,11 @@ document.querySelector('.submit-btn').addEventListener('click', ()=>{
 
 
 
-//set up nav button on-click events
+//call the project popup modal on click
 
-// addProject.addEventListener('click', () => {
-//   while(div.firstChild){
-//     div.removeChild(div.firstChild);
-//   }
-//   renderMenu();
-// })
-
-// infoButton.addEventListener('click', () => {
-//   while(div.firstChild){
-//     div.removeChild(div.firstChild);
-//   }
-//   renderRestaurantInfo();
-// })
-
-// homeButton.addEventListener('click', () => {
-//   while(div.firstChild){
-//     div.removeChild(div.firstChild);
-//   }
-//   renderHome();
-// })
-
-//call the popup modal on click
-
-let popup = createPopup('#popup');
-document.querySelector('#open-project-popup').addEventListener('click', popup);
+let popup = createPopup('#item-popup');
+document.querySelector('#open-item-popup').addEventListener('click', popup);
 
 let removeBtnList = document.querySelectorAll('.remove');
+
+//call the project popup modal on click
