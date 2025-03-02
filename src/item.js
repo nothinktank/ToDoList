@@ -44,5 +44,22 @@ export class Item {
         }
     }
 
+    title.value = '';
+    description = '';
+    dueDate = '';
+    priority = '';
+    project = '';
 
+    popupNode.classList.remove('active');
+  }
+
+  //display project list
+  export function displayProjects() {
+
+  }
+
+  //display item function
+
+  export function displayItems() {
+    
   }
