@@ -1,6 +1,6 @@
 import './style.css';
 import {Item, addNewItem} from './item.js';
-import {Project, addNewProject} from './project.js';
+// import {Project, addNewProject} from './project.js';
 
 import createPopup from './newItemPopup.js';
 // import hardenImage from './chef.jpg';
@@ -16,9 +16,12 @@ const addProject = document.querySelector('.addProject');
 
 //default home page
   //create an array for project list with a "general" project that items go into if project isn't specified on creation
-  let generalProject = new Project('general');
+  // let generalProject = new Project('general');
   // console.log(typeof(generalProject));
-  let projectList = [generalProject];
+  const item = new Item('work on popup modal', 'add a popup modal for item detail', '3/1/2025','1' );
+
+  let projectList = {general: [item]};
+  // generalProject.toDoItems.push('set up object name check during adding items');
   //display all projects
   console.log(projectList);
 function renderHome() {
@@ -30,13 +33,11 @@ function renderHome() {
 }
 renderHome();
 
-console.log('logging something for the restaurant');
 
-const item = new Item('work on popup modal', 'add a popup modal for item detail', '3/1/2025','1' );
 item.detail();
 
 document.querySelector('.submit-btn').addEventListener('click', ()=>{
-  addNewProject(projectList);
+  addNewItem(projectList);
   console.log(projectList);
 }  );
 
