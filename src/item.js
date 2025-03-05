@@ -56,7 +56,37 @@ export class Item {
   
 
   //display item function
-  //maybe this can be a function in the Item class
-  export function displayItems() {
+  //this function takes an array as an argument to display the item elements in it
+  export function displayItems(projectItemArray, itemList) {
+    for (let i = 0; i < projectItemArray.length; i ++){
+      let item = document.createElement('li');
+      let itemRemoveBtn = document.createElement('button');
+      let itemTitle = document.createElement('div');
+      let itemDescription = document.createElement('div');
+      let itemDueDate = document.createElement('div');
+      let itemPriority = document.createElement('div');
+    
+      
+      itemList.appendChild(item);
+      console.log(`this is logging item number ${projectItemArray[i]}`)
+      
+      itemTitle.textContent =`Title: ${projectItemArray[i].title}` ;
+      item.appendChild(itemTitle);
+
+      itemDescription.textContent = `Description: ${projectItemArray[i].description}`;
+      item.appendChild(itemDescription);
+
+      itemDueDate.textContent = `Due: ${projectItemArray[i].dueDate}`;
+      item.appendChild(itemDueDate);
+
+      itemPriority.textContent = `Priority: ${projectItemArray[i].priority}`;
+      item.appendChild(itemPriority);
+
+      //update style for each to do item attribute
+
+      itemRemoveBtn.textContent = 'Remove';
+      item.appendChild(itemRemoveBtn);
+
+    }
     
   }

@@ -1,5 +1,5 @@
 import './style.css';
-import {Item, addNewItem} from './item.js';
+import {Item, addNewItem, displayItems} from './item.js';
 // import {Project, addNewProject} from './project.js';
 
 import createPopup from './newItemPopup.js';
@@ -19,8 +19,10 @@ const addProject = document.querySelector('.addProject');
   // let generalProject = new Project('general');
   // console.log(typeof(generalProject));
   const item = new Item('work on popup modal', 'add a popup modal for item detail', '3/1/2025','1' );
+  const secondItem = new Item('fix duplicate item appending issue', 'find where the duplication is', '3/5/2025','1' );
 
-  let projectList = {general: [item], general2: [item], general3: [item]};
+
+  let projectList = {general: [item, secondItem], general2: []};
   // generalProject.toDoItems.push('set up object name check during adding items');
   //display all projects
   console.log(projectList);
@@ -31,6 +33,7 @@ const addProject = document.querySelector('.addProject');
 
   function displayProjects() {
     let projectNameArray = Object.keys(projectList);
+    let itemArray = Object.values(projectList);
     console.log(projectNameArray); 
 
     for (let i = 0; i < projectNameArray.length; i++) {
@@ -39,27 +42,20 @@ const addProject = document.querySelector('.addProject');
       let projectTitle= document.createElement('div');
       let listOfTodoItems = document.createElement('ul');
 
-      projectTitle.textContent = projectNameArray[0];
-
-
+      projectTitle.textContent = projectNameArray[i];
+      //call the displayItem function here 
+      console.log(itemArray[i]);
+      displayItems(itemArray[i], listOfTodoItems);
 
       myProjects.appendChild(newProject);
       newProject.appendChild(projectTitle);
       newProject.appendChild(listOfTodoItems);
+      removeProjectBtn.textContent = 'Remove';
       newProject.appendChild(removeProjectBtn);
     }
   }
 
   displayProjects();
-
-function renderHome() {
-  // subHeader.textContent = 'best barbeque chicken in LA';
-  // subHeader.id = 'subHeader';
-
-  // div.appendChild(subHeader);
-  // div.appendChild(image); 
-}
-renderHome();
 
 
 item.detail();
