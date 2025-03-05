@@ -45,21 +45,18 @@ export class Item {
     }
 
     title.value = '';
-    description = '';
-    dueDate = '';
-    priority = '';
-    project = '';
+    description.value = '';
+    dueDate.value = '';
+    priority.value = '';
+    project.value = '';
 
     popupNode.classList.remove('active');
   }
 
-  //display project list
-  export function displayProjects() {
-
-  }
+  
 
   //display item function
-
+  //maybe this can be a function in the Item class
   export function displayItems() {
     
   }

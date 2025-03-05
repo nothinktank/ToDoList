@@ -20,10 +20,38 @@ const addProject = document.querySelector('.addProject');
   // console.log(typeof(generalProject));
   const item = new Item('work on popup modal', 'add a popup modal for item detail', '3/1/2025','1' );
 
-  let projectList = {general: [item]};
+  let projectList = {general: [item], general2: [item], general3: [item]};
   // generalProject.toDoItems.push('set up object name check during adding items');
   //display all projects
   console.log(projectList);
+
+//display project list
+  //get reference to myProjects in HTML
+  let myProjects = document.querySelector('.myProjects');
+
+  function displayProjects() {
+    let projectNameArray = Object.keys(projectList);
+    console.log(projectNameArray); 
+
+    for (let i = 0; i < projectNameArray.length; i++) {
+      let newProject = document.createElement('li');
+      let removeProjectBtn = document.createElement('button');
+      let projectTitle= document.createElement('div');
+      let listOfTodoItems = document.createElement('ul');
+
+      projectTitle.textContent = projectNameArray[0];
+
+
+
+      myProjects.appendChild(newProject);
+      newProject.appendChild(projectTitle);
+      newProject.appendChild(listOfTodoItems);
+      newProject.appendChild(removeProjectBtn);
+    }
+  }
+
+  displayProjects();
+
 function renderHome() {
   // subHeader.textContent = 'best barbeque chicken in LA';
   // subHeader.id = 'subHeader';

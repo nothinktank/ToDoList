@@ -8,19 +8,19 @@ export class Project {
   // toDoItems = [];
 }
 
-export function addNewProject(projectList){
-    let popupNode = document.querySelector('#project-popup');
-    let name = document.querySelector('#name');
-    let priority = document.querySelector('#priority');
+// export function addNewProject(projectList){
+//     let popupNode = document.querySelector('#project-popup');
+//     let name = document.querySelector('#name');
+//     let priority = document.querySelector('#priority');
     
-    if (name.value) {
-      let newProject = new Project(name.value, priority.value);
-      projectList.push(newProject);
-      // this.displayBook(nb);
+//     if (name.value) {
+//       let newProject = new Project(name.value, priority.value);
+//       projectList.push(newProject);
+//       // this.displayBook(nb);
 
-    name.value = '';
-    priority.value = '';
+//     name.value = '';
+//     priority.value = '';
   
-    popupNode.classList.remove('active');
-  }
-}
+//     popupNode.classList.remove('active');
+//   }
+// }
