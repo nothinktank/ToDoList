@@ -85,8 +85,14 @@ export class Item {
       //update style for each to do item attribute
 
       itemRemoveBtn.textContent = 'Remove';
+      itemRemoveBtn.classList.add('remove');
       item.appendChild(itemRemoveBtn);
 
+      //remove item logic
+      let itemIndex = projectItemArray.indexOf(item);
+      itemRemoveBtn.addEventListener('click', (e) => {
+        projectItemArray.splice(itemIndex, 1);
+        itemList.removeChild(item);
+      })
     }
-    
   }
