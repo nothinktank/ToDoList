@@ -50,8 +50,20 @@ const addProject = document.querySelector('.addProject');
       myProjects.appendChild(newProject);
       newProject.appendChild(projectTitle);
       newProject.appendChild(listOfTodoItems);
+
+      //remove projects logic 
       removeProjectBtn.textContent = 'Remove';
       newProject.appendChild(removeProjectBtn);
+
+      let projectIndex = projectNameArray.indexOf(newProject);
+      removeProjectBtn.addEventListener('click', (e) => {
+        //need to operate on the projectList object and remove the key/value pair within the object
+        let projectKey = projectNameArray[i];
+        delete projectList[projectKey];
+        projectNameArray.splice(projectIndex, 1);
+        myProjects.removeChild(newProject);
+        console.log(projectList);
+      })
     }
   }
 
