@@ -63,6 +63,10 @@ item.detail();
 document.querySelector('.submit-btn').addEventListener('click', ()=>{
   addNewItem(projectList);
   console.log(projectList);
+  //remove child elements from DOM for projects
+  myProjects.replaceChildren();
+  displayProjects();
+  console.log(projectList)
 }  );
 
 
