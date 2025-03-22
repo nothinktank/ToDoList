@@ -17,15 +17,14 @@ export class Item {
 
   }
 
-  export function addNewItem(projectList, typeOfPopup) {
+  export function addNewItem(projectList, typeOfPopup, edit) {
     // let popupNode = document.querySelector('#item-popup');
     let popupNode = document.querySelector(typeOfPopup);
-    let title = document.querySelector('#title');
-    let description = document.querySelector('#description');
-    let dueDate = document.querySelector('#duedate');
-    let priority = document.querySelector('#priority');
-    let project = document.querySelector('#project');
-    
+    let title = document.querySelector( `#${edit}title`);
+    let description = document.querySelector(`#${edit}description`);
+    let dueDate = document.querySelector(`#${edit}duedate`);
+    let priority = document.querySelector(`#${edit}priority`);
+    let project = document.querySelector(`#${edit}project`);
 
     //if title field is not blank then initialize a new item using item class
     if (title.value){
@@ -54,6 +53,8 @@ export class Item {
 
     popupNode.classList.remove('active');
   }
+
+  
 
   
 
