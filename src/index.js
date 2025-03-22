@@ -18,15 +18,17 @@ const addProject = document.querySelector('.addProject');
   //create an array for project list with a "general" project that items go into if project isn't specified on creation
   // let generalProject = new Project('general');
   // console.log(typeof(generalProject));
-  const item = new Item('work on popup modal', 'add a popup modal for item detail', '3/1/2025','1' );
-  const secondItem = new Item('fix duplicate item appending issue', 'find where the duplication is', '3/5/2025','1' );
+  const item = new Item('work on popup modal', 'add a popup modal for item detail', '3/1/2025','1', 'general' );
+  const secondItem = new Item('fix duplicate item appending issue', 'find where the duplication is', '3/5/2025','1', 'general' );
 
+  
 
   let projectList = {general: [item, secondItem], general2: []};
   // generalProject.toDoItems.push('set up object name check during adding items');
   //display all projects
-  console.log(projectList);
-
+  
+// let flattenedItemArray =  Object.values(projectList).flat();
+// console.log(flattenedItemArray);
 //display project list
   //get reference to myProjects in HTML
   let myProjects = document.querySelector('.myProjects');
@@ -34,7 +36,7 @@ const addProject = document.querySelector('.addProject');
   function displayProjects() {
     let projectNameArray = Object.keys(projectList);
     let itemArray = Object.values(projectList);
-    console.log(projectNameArray); 
+    console.log(itemArray); 
 
     for (let i = 0; i < projectNameArray.length; i++) {
       let newProject = document.createElement('li');
@@ -45,7 +47,8 @@ const addProject = document.querySelector('.addProject');
       projectTitle.textContent = projectNameArray[i];
       //call the displayItem function here 
       console.log(itemArray[i]);
-      displayItems(itemArray[i], listOfTodoItems);
+      displayItems(itemArray[i], listOfTodoItems, projectList);
+      console.log(projectList);
 
       myProjects.appendChild(newProject);
       newProject.appendChild(projectTitle);
@@ -68,20 +71,28 @@ const addProject = document.querySelector('.addProject');
   }
 
   displayProjects();
-
+  addPopupFunctionToNewEditBtns();
 
 item.detail();
 
 document.querySelector('.submit-btn').addEventListener('click', ()=>{
-  addNewItem(projectList);
+  addNewItem(projectList, '#item-popup');
   console.log(projectList);
   //remove child elements from DOM for projects
   myProjects.replaceChildren();
   displayProjects();
-  console.log(projectList)
+  console.log(projectList);
+  addPopupFunctionToNewEditBtns();
 }  );
 
-
+//create similar code above next
+// document.querySelector('.submit-edits').addEventListener('click', ()=>{
+//   addNewItem(projectList, '#edit-popup');
+//   console.log(projectList);
+//   myProjects.replaceChildren();
+//   displayProjects();
+//   console.log(projectList);
+// })
 
 //call the project popup modal on click
 
@@ -90,4 +101,90 @@ document.querySelector('#open-item-popup').addEventListener('click', popup);
 
 let removeBtnList = document.querySelectorAll('.remove');
 
-//call the project popup modal on click
+//call the edit detailpopup modal on click
+
+let editPopup = createPopup('#edit-popup');
+let listOfEditBtns = document.querySelectorAll('.open-edit-popup');
+// console.log(listOfEditBtns[0]);//get the actual value of button.open-edit-popup
+
+let titleProjectRef;
+
+//add event listener to each of the buttons in listOfEditBtns
+function addPopupFunctionToNewEditBtns(){
+  let scopedListOfEditBtns = document.querySelectorAll('.open-edit-popup');
+  for(let i = 0; i < scopedListOfEditBtns.length ; i++) {
+  scopedListOfEditBtns[i].addEventListener('click', () => {
+  console.log(scopedListOfEditBtns[i].getAttribute('project-item'));
+  
+    let title = document.querySelector('#edit-title');
+    let description = document.querySelector('#edit-description');
+    let dueDate = document.querySelector('#edit-duedate');
+    let priority = document.querySelector('#edit-priority');
+    let projectName = document.querySelector('#edit-project');
+
+  let btnIdentifier = scopedListOfEditBtns[i].getAttribute('project-item');
+
+  //use for in loop for the projectList object to access each item for edit
+    for (let project in projectList) {
+      for (let i = 0; i < projectList[project].length; i++ ) {
+        if (projectList[project][i].identifier === btnIdentifier) {
+          // fill the popup with existing data
+      title.value = projectList[project][i].title;
+      description.value = projectList[project][i].description;
+      dueDate.value = projectList[project][i].dueDate;
+      priority.value = projectList[project][i].priority;
+      projectName.value = projectList[project][i].project;
+        }
+      }
+      console.log( projectList[project][0])
+    }
+
+  // let flattenedItemArray =  Object.values(projectList).flat();
+
+  // for (let i = 0; i < flattenedItemArray.length; i++){
+  //   //now check each item object in the flattenetitle.value = flattenedItemArray[i].title;d array has the same identifier as the edit button clicked
+  //   if (flattenedItemArray[i].identifier === btnIdentifier){
+  //     //fill the popup with existing data
+  //     title.value = flattenedItemArray[i].title;
+  //     description.value = flattenedItemArray[i].description;
+  //     dueDate.value = flattenedItemArray[i].dueDate;
+  //     priority.value = flattenedItemArray[i].priority;
+  //     project.value = flattenedItemArray[i].project;
+  //   }
+  // }
+  //populate each value field onto the edit popup if exists
+  
+  //i need to update projectList/flattenItemArray when i remove an item from the display 
+  console.log(i);
+  
+    
+
+    
+    //cant limit the projectList to just general
+
+  //call editItem()
+  
+  // alert(this.getAttribute('project-item'));
+  editPopup();
+  attachItemToEditBtn(); 
+})
+}
+
+
+  //call the attachItemToEditBtn function
+  
+
+  
+
+  //call editItem function
+  //call displayItem function 
+
+}
+
+//create a function that attaches item objects to the edit button 
+    function attachItemToEditBtn(){
+      //for each button, add the corresponding object as an element custom property
+      for (const node of listOfEditBtns) {
+        console.log(node);
+      }
+    }
