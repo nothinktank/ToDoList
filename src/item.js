@@ -41,6 +41,7 @@ export class Item {
           }
         } else { //when includes() returns false
           let newProjectName = project.value; //assign user input project name 
+          
           projectList[newProjectName] = [newItem]; //add new project as key-value pair to projectList object
         }
     }
@@ -138,20 +139,20 @@ export class Item {
   
 
 
-  export function editItem(projectList, titleProjectRef){
+  // export function editItem(projectList, titleProjectRef){
    
-    //decide which popup from the template.html file
-    let popupNode = document.querySelector('#edit-popup');
-    //reference each field
-    let title = document.querySelector('#edit-title');
-    let description = document.querySelector('#edit-description');
-    let dueDate = document.querySelector('#edit-duedate');
-    let priority = document.querySelector('#edit-priority');
-    let project = document.querySelector('#edit-project');
+  //   //decide which popup from the template.html file
+  //   let popupNode = document.querySelector('#edit-popup');
+  //   //reference each field
+  //   let title = document.querySelector('#edit-title');
+  //   let description = document.querySelector('#edit-description');
+  //   let dueDate = document.querySelector('#edit-duedate');
+  //   let priority = document.querySelector('#edit-priority');
+  //   let project = document.querySelector('#edit-project');
 
-     //find reference to item in project list using data-attribute
+  //    //find reference to item in project list using data-attribute
      
 
-      }
+  //     }
 
     

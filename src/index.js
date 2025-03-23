@@ -22,8 +22,8 @@ const addProject = document.querySelector('.addProject');
   const secondItem = new Item('fix duplicate item appending issue', 'find where the duplication is', '3/5/2025','1', 'general' );
 
   
-
-  let projectList = {general: [item, secondItem], general2: []};
+  // general: [item, secondItem], general2: []
+  let projectList = {};
   // generalProject.toDoItems.push('set up object name check during adding items');
   //display all projects
   
@@ -52,6 +52,7 @@ const addProject = document.querySelector('.addProject');
 
       myProjects.appendChild(newProject);
       newProject.appendChild(projectTitle);
+      // removeProjectBtn
       newProject.appendChild(listOfTodoItems);
 
       //remove projects logic 
@@ -61,8 +62,10 @@ const addProject = document.querySelector('.addProject');
       let projectIndex = projectNameArray.indexOf(newProject);
       removeProjectBtn.addEventListener('click', (e) => {
         //need to operate on the projectList object and remove the key/value pair within the object
-        let projectKey = projectNameArray[i];
-        delete projectList[projectKey];
+        // let projectKey = projectNameArray[i];
+        console.log(projectTitle);
+        delete projectList[projectTitle.textContent];
+        console.log(projectList);
         projectNameArray.splice(projectIndex, 1);
         myProjects.removeChild(newProject);
         console.log(projectList);
@@ -142,23 +145,8 @@ function addPopupFunctionToNewEditBtnsAndRemoveExistingItem(){
         }
       }
     }
-  
-  //call editItem()
-  
-  // alert(this.getAttribute('project-item'));
   editPopup();
-  
-  
 })
 }
-
-
-  //call the attachItemToEditBtn function
-  
-
-  
-
-  //call editItem function
-  //call displayItem function 
 
 }
