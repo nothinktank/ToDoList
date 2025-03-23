@@ -3,6 +3,7 @@ import {Item, addNewItem, displayItems} from './item.js';
 // import {Project, addNewProject} from './project.js';
 
 import createPopup from './newItemPopup.js';
+import storageAvailable from './storage.js';
 // import hardenImage from './chef.jpg';
 
 const image = document.createElement('img');
@@ -149,4 +150,11 @@ function addPopupFunctionToNewEditBtnsAndRemoveExistingItem(){
 })
 }
 
+}
+
+//detects whether localStorage is both supported and available
+if(storageAvailable('localStorage')) {
+  console.log('available');
+}else {
+  console.log('storage not available')
 }
