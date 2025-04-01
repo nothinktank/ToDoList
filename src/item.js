@@ -38,7 +38,7 @@ if (edit === 'edit-'){
         // project.value = '';
 }else {
   if(!title.value || !project.value){
-    alert('you need at least a title and a project name to submit a new item!');
+     return alert('you need at least a title and a project name to submit a new item!');
   }else if (title.value && project.value){//if title field is not blank then initialize a new item using item class
     let newItem = new Item(title.value, description.value, dueDate.value, priority.value, project.value)
     localStorage.setItem(`${project.value} ${title.value}`, JSON.stringify(newItem));
