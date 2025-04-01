@@ -42,7 +42,7 @@
 
     <!-- edit popup modal  -->
 
-    <div class="popup" id="edit-popup">
+    <!-- <div class="popup" id="edit-popup">
       <div class="overlay"></div>
         <div class="popup-content">
           <h2>Edit this item</h2>
@@ -53,6 +53,30 @@
             <div>Due date: </div><input type="text" id="edit-duedate">
             <div>Priority: </div><input type="text" id="edit-priority">
             <div>Project: </div><input type="text" id="edit-project" placeholder="general">
+          </div>
+          
+          <div class="controls">
+          <button class="close-btn">Close</button>
+          <button class="submit-edits">Submit</button>
+          </div>
+        </div>
+      
+    </div> -->
+
+    <!--modified edit popup modal not allowing title and project changes -->
+    <div class="popup" id="edit-popup">
+      <div class="overlay"></div>
+        <div class="popup-content">
+          <h2>Edit this item</h2>
+          <p>Insert item fields here</p>
+          <div class="flex-box">
+            <!-- <div>Title: </div><input type="text" id="edit-title"> -->
+            <div>Title: <span id="edit-title"></span></div>
+            <div>Description: </div><input type="text" id="edit-description">
+            <div>Due date: </div><input type="text" id="edit-duedate">
+            <div>Priority: </div><input type="text" id="edit-priority">
+            <div>Project: <span id="edit-project"></span></div>
+            <!-- <div>Project: </div><input type="text" id="edit-project" placeholder="general"> -->
           </div>
           
           <div class="controls">
