@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<script defer src="main.js"></script></head>
+<body>
+  <header>
+    To not Do List
+    <nav>
+      <button id="open-item-popup">Add Item</button>
+    </nav>
+  </header>
+  <div id="projectContainer">
+    <ul class="myProjects">
+
+    </ul>
+    </div>
+
+    <!-- add item popup modal -->
+    <div class="popup" id="item-popup">
+      <div class="overlay"></div>
+        <div class="popup-content">
+          <h2>Add new item to a project</h2>
+          <p>Insert item fields here</p>
+          <div class="flex-box">
+            <div>Title: </div><input type="text" id="title">
+            <div>Description: </div><input type="text" id="description">
+            <div>Due date: </div><input type="text" id="duedate">
+            <div>Priority: </div><input type="text" id="priority">
+            <div>Project: </div><input type="text" id="project" placeholder="general">
+          </div>
+          
+          <div class="controls">
+          <button class="close-btn">Close</button>
+          <button class="submit-btn">Submit</button>
+          </div>
+        </div>
+      
+    </div>
+
+    <!-- edit popup modal  -->
+
+    <div class="popup" id="edit-popup">
+      <div class="overlay"></div>
+        <div class="popup-content">
+          <h2>Edit this item</h2>
+          <p>Insert item fields here</p>
+          <div class="flex-box">
+            <div>Title: </div><input type="text" id="edit-title">
+            <div>Description: </div><input type="text" id="edit-description">
+            <div>Due date: </div><input type="text" id="edit-duedate">
+            <div>Priority: </div><input type="text" id="edit-priority">
+            <div>Project: </div><input type="text" id="edit-project" placeholder="general">
+          </div>
+          
+          <div class="controls">
+          <button class="close-btn">Close</button>
+          <button class="submit-edits">Submit</button>
+          </div>
+        </div>
+      
+    </div>
+</body>
+</html>
