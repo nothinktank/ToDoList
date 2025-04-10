@@ -146,6 +146,7 @@ document.querySelector('.submit-btn').addEventListener('click', ()=>{
   myProjects.replaceChildren();
   displayProjects();
   addPopupFunctionToNewEditBtnsAndRemoveExistingItem();
+  addCompletionCheckmarkFunctionToEachItem()
   console.log(projectList);
   
 }  );
@@ -157,6 +158,7 @@ document.querySelector('.submit-edits').addEventListener('click', ()=>{
   myProjects.replaceChildren();
   displayProjects();
   addPopupFunctionToNewEditBtnsAndRemoveExistingItem();
+  addCompletionCheckmarkFunctionToEachItem()
   console.log(projectList);
   
 })
