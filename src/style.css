@@ -315,7 +315,7 @@ form{
 
 }
 
-.checkmark .checkmark-incomplete{
+.checkmark {
   /* content: '✔'; */
   color:gray;
   /* position: absolute;
