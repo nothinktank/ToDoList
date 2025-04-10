@@ -132,29 +132,12 @@ console.log(`projectIdArray is ${projectIdArray}`)//list the projects that neede
         localStorage.removeItem(key);
       }
     }
-
-
-
-    // let numberOfItemInStorage = localStorage.length;
-    // for (let i = 0; i < numberOfItemInStorage; i++) {
-    //   let retrievedItemKey = localStorage.key(i);
-    //   //use the retrieved item key to get item value
-    //     let retrievedItemValue = localStorage.getItem(retrievedItemKey);
-    //   //parse the item value
-    //     let parsedItem = JSON.parse(retrievedItemValue);
-    //     // console.log(parsedItem.project);
-
-    //     if (parsedItem.project === nameOfProject) {
-    //       console.log(i);
-    //       localStorage.removeItem(retrievedItemKey);
-    //     }
-    // }
+    
   }
 
   displayProjects();
   addPopupFunctionToNewEditBtnsAndRemoveExistingItem();
-
-
+  addCompletionCheckmarkFunctionToEachItem();
 
 document.querySelector('.submit-btn').addEventListener('click', ()=>{
   addNewItem(projectList, '#item-popup', '');
@@ -254,7 +237,47 @@ function addPopupFunctionToNewEditBtnsAndRemoveExistingItem(){
   editPopup();
 })
 }
+}
+// let listOfCheckmarks = document.querySelectorAll('.checkmark');
+// console.log(listOfCheckmarks);
+//add an onclicklistener to all listed completion checkmarks
+function addCompletionCheckmarkFunctionToEachItem() {
+  let listOfCheckmarks = document.querySelectorAll('.checkmark');
 
+
+  for (let i = 0; i < listOfCheckmarks.length; i++) {
+    listOfCheckmarks[i].addEventListener('click', () => {
+      let completionBtnIdentifier = listOfCheckmarks[i].getAttribute('item-key');
+      // console.log(completionBtnIdentifier)
+      let numberOfStoredItems = localStorage.length;
+    //for loop to access the item with a matching attribute
+    if(numberOfStoredItems > 0){
+      for (let k = 0; k < numberOfStoredItems; k++){
+        let retrievedItemKey = localStorage.key(k);
+        let retrievedItemValue = localStorage.getItem(retrievedItemKey);
+        let parsedItem = JSON.parse(retrievedItemValue);
+        if (parsedItem.identifier === completionBtnIdentifier){
+          if (!parsedItem.isComplete){
+            parsedItem.isComplete = true;//set item to complete
+            localStorage.setItem(retrievedItemKey, JSON.stringify(parsedItem)); //save completion status
+            listOfCheckmarks[i].style.color = 'lightgreen';
+              // listOfCheckmarks[i].classList.remove('checkmark-incomplete');
+              // listOfCheckmarks[i].classList.add('checkmark-complete');
+          }else {
+            parsedItem.isComplete = false;//set item to incomplete
+            localStorage.setItem(retrievedItemKey, JSON.stringify(parsedItem));//save completion status
+            listOfCheckmarks[i].style.color = 'gray';
+              // listOfCheckmarks[i].classList.remove('checkmark-complete');
+              // listOfCheckmarks[i].classList.add('checkmark-incomplete');
+          }
+console.log(parsedItem.isComplete);
+            //find the completion boolean and change it
+        }
+      }
+    }
+  }
+    )
+  }
 }
 
 //detects whether localStorage is both supported and available

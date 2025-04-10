@@ -8,12 +8,22 @@ export class Item {
     this.priority = priority;
     this.project = project;
     this.identifier = `${project} ${title}` 
+    this.isComplete = false;
   }
 
     detail(){
       console.log(`this item is ${this.title}`);
     }
 
+    setComplete(){
+      this.isComplete = true;
+      // return this.identifier 
+      //maybe this can let me use the identifier to edit the item in local storage
+    }
+
+    setIncomplete(){
+      this.isComplete = false;
+    }
 
   }
 
@@ -163,6 +173,14 @@ if (edit === 'edit-'){
       let itemPriority = document.createElement('div');
       let editItemBtn = document.createElement('button');
 
+      //item completion status
+      let isCompleteIndicator = document.createElement('span');
+      isCompleteIndicator.classList.add('checkmark');
+      isCompleteIndicator.textContent = "✓";
+      
+      
+      isCompleteIndicator.setAttribute('item-key', `${parsedItemObjectFromStorage.identifier}`)
+
       let itemProject = document.createElement('div');
       let projectName = parsedItemObjectFromStorage.project; //need to take project name as a function input
 
@@ -192,6 +210,8 @@ if (edit === 'edit-'){
 
       
 
+      
+
       //edit item logic
       //need to reference the item object to implement the functionality to all the edit buttons
       editItemBtn.textContent = 'Edit';
@@ -199,6 +219,13 @@ if (edit === 'edit-'){
       // console.log(projectItemArray[i].title);
       editItemBtn.setAttribute('project-item', `${projectName} ${parsedItemObjectFromStorage.title}`);
       item.appendChild(editItemBtn);
+
+      // if (parsedItemObjectFromStorage.isComplete){
+      //   isCompleteIndicator.style.color = 'lightgreen';
+      // }else{
+      //   isCompleteIndicator.style.color = 'gray';
+      // }
+      item.appendChild(isCompleteIndicator);
 
       //remove item logic
       let btnIdentifier = editItemBtn.getAttribute('project-item');

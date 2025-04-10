@@ -82,6 +82,8 @@ li {
   opacity: 0;
   box-shadow: 0px 2px 2px 5px rgba(0, 0, 0, 0.05);
   transition: all 300ms ease-in-out;
+
+  text-align: center;
 }
 
 .popup .popup-content h2 {
@@ -301,3 +303,45 @@ li {
   box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
 }
 
+/* form styling */
+
+form{
+  display: inline-block;
+  
+  /* form outline */
+  /* padding: 1em; */
+  /* border: 1px solid #ccc;
+  border-radius: 1em; */
+
+}
+
+.checkmark .checkmark-incomplete{
+  /* content: '✔'; */
+  color:gray;
+  /* position: absolute;
+  left:0; top: 2px; */
+  width: 50px; 
+  height: 50px;
+  text-align: center;
+  /* border: 1px solid #aaa; */
+  /* background: green; */
+  border-radius: 50%;
+  /* box-shadow: inset 0 1px 3px rgba(0,0,0,.3); */
+  margin-left: 10px;
+}
+
+
+.checkmark .checkmark-complete{
+  /* content: '✔'; */
+  color: lightgreen;
+  /* position: absolute;
+  left:0; top: 2px; */
+  width: 50px; 
+  height: 50px;
+  text-align: center;
+  /* border: 1px solid #aaa; */
+  /* background: green; */
+  border-radius: 50%;
+  /* box-shadow: inset 0 1px 3px rgba(0,0,0,.3); */
+  margin-left: 10px;
+}
