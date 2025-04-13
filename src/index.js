@@ -187,7 +187,8 @@ function addPopupFunctionToNewEditBtnsAndRemoveExistingItem(){
     let title = document.querySelector('#edit-title');
     let description = document.querySelector('#edit-description');
     let dueDate = document.querySelector('#edit-duedate');
-    let priority = document.querySelector('#edit-priority');
+    // let priority = document.querySelector('#edit-priority');
+    let priority = document.querySelector(`input[name="edit-priority"]`)
     let projectName = document.querySelector('#edit-project');
 
   let btnIdentifier = scopedListOfEditBtns[i].getAttribute('project-item');
@@ -203,12 +204,16 @@ function addPopupFunctionToNewEditBtnsAndRemoveExistingItem(){
     // console.log(JSON.parse(localStorage.getItem(localStorage.key(0))));
     if (parsedItem.identifier === btnIdentifier){
       //restricted title and project for editing existing items
-      title.textContent = parsedItem.title;
-      projectName.textContent = parsedItem.project;
+
+
+      title.value = parsedItem.title;
+      projectName.value = parsedItem.project;
 
       description.value = parsedItem.description;
       dueDate.value = parsedItem.dueDate;
       priority.value = parsedItem.priority;
+
+      // let radioBtn = document.querySelector('')
 
     
       //testing my theory, return the parsedItem.identifier 

@@ -143,12 +143,23 @@ li {
 }
 
 .flex-box {
-  display: flex;
+  display:flex;
+
   flex-direction: column;
-  justify-content: space-between;
+
+  /* flex-direction:row; */
+  /* justify-content: flex-end; */
+  align-items: baseline;
+  text-align: left;
   /* gap: 10px; */
 }
 
+.flex-box p label {
+  /* background-color: #174ea6; */
+  /* justify-content: baseline; */
+  text-align: left;
+  
+}
 /* item popup CSS style */
 
 #open-item-popup {

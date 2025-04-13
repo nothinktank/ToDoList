@@ -23,21 +23,56 @@
     <!-- add item popup modal -->
     <div class="popup" id="item-popup">
       <div class="overlay"></div>
+
         <div class="popup-content">
           <h2>Add new item to a project</h2>
           <p>Insert item fields here</p>
+
+          <form id="newItem" method="post" >
+
           <div class="flex-box">
-            <div>Title: </div><input type="text" id="title">
-            <div>Description: </div><input type="text" id="description">
-            <div>Due date: </div><input type="text" id="duedate">
-            <div>Priority: </div><input type="text" id="priority">
-            <div>Project: </div><input type="text" id="project" placeholder="general">
+            <!-- <div>Title: </div><input type="text" id="title"> -->
+          <p>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required><br>
+          </p>
+            
+
+            <!-- <div>Description: </div><input type="text" id="description"> -->
+
+          <p>
+            <label for="description">Description:</label><br>
+            <textarea name="description" id="description"></textarea>
+          </p>
+            <!-- need to update the document query method -->
+
+            <!-- <div>Due date: </div><input type="text" id="duedate"> -->
+          <p>
+            <label for="duedate">Due Date:</label>
+            <input type="date" id="duedate" name="duedate"><br>
+          </p>
+            <!-- <div>Priority: </div><input type="text" id="priority"> -->
+          <p>
+            <!-- <label for="priority">Priority:</label> -->
+            <input type="radio" id="low" name="priority" value="low"> <label for="low">Low</label>
+            <input type="radio" id="Med" name="priority" value="Med"> <label for="Med">Med</label>
+            <input type="radio" id="High" name="priority" value="High"> <label for="High">High</label><br>
+         </p>
+            <!-- <div>Project: </div><input type="text" id="project" placeholder="general"> -->
+         <p>
+            <label for="project">Project:</label>
+            <input type="text" id="project" name="project" value="general" required>
+         </p>
+
           </div>
           
           <div class="controls">
           <button class="close-btn">Close</button>
-          <button class="submit-btn">Submit</button>
+          <button class="submit-btn" type="submit">Submit</button>
           </div>
+
+        </form>
+
         </div>
       
     </div>
@@ -71,20 +106,52 @@
         <div class="popup-content">
           <h2>Edit this item</h2>
           <p>Insert item fields here</p>
+          <form id="editedItem"  >
           <div class="flex-box">
             <!-- <div>Title: </div><input type="text" id="edit-title"> -->
-            <div>Title: <span id="edit-title"></span></div>
-            <div>Description: </div><input type="text" id="edit-description">
-            <div>Due date: </div><input type="text" id="edit-duedate">
-            <div>Priority: </div><input type="text" id="edit-priority">
-            <div>Project: <span id="edit-project"></span></div>
+            <!-- <div>Title: <span id="edit-title"></span></div> -->
+
+            <p>
+              <label for="title">Title:</label>
+              <input type="text" id="edit-title" name="title" readonly><br>
+            </p>
+
+            <!-- <div>Description: </div><input type="text" id="edit-description"> -->
+
+            <p>
+              <label for="description">Description:</label><br>
+              <textarea name="description" id="edit-description"></textarea>
+            </p>
+
+            <!-- <div>Due date: </div><input type="text" id="edit-duedate"> -->
+
+            <p>
+              <label for="duedate">Due Date:</label>
+              <input type="date" id="edit-duedate" name="duedate"><br>
+            </p>
+
+            <!-- <div>Priority: </div><input type="text" id="edit-priority"> -->
+
+            <p>
+              <!-- <label for="edit-priority">Priority:</label> -->
+              <input type="radio" id="low" name="edit-priority" value="low" class="radioPriority"> <label for="low">Low</label>
+              <input type="radio" id="Med" name="edit-priority" value="Med" class="radioPriority"> <label for="Med">Med</label>
+              <input type="radio" id="High" name="edit-priority" value="High" class="radioPriority"> <label for="High">High</label><br>
+           </p>
+
+            <!-- <div>Project: <span id="edit-project"></span></div> -->
+            <p>
+              <label for="project">Project:</label>
+              <input type="text" id="edit-project" name="project" readonly>
+           </p>
             <!-- <div>Project: </div><input type="text" id="edit-project" placeholder="general"> -->
           </div>
           
           <div class="controls">
           <button class="close-btn">Close</button>
-          <button class="submit-edits">Submit</button>
+          <button class="submit-edits" type="submit">Submit</button>
           </div>
+        </form>
         </div>
       
     </div>

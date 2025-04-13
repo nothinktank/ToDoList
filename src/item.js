@@ -34,11 +34,12 @@ export class Item {
     let title = document.querySelector( `#${edit}title`);
     let description = document.querySelector(`#${edit}description`);
     let dueDate = document.querySelector(`#${edit}duedate`);
-    let priority = document.querySelector(`#${edit}priority`);
+    // let priority = document.querySelector(`#${edit}priority`);
+    let priority = document.querySelector(`input[name="${edit}priority"]:checked`)
     let project = document.querySelector(`#${edit}project`);
     
 if (edit === 'edit-'){
-  let editedItem = new Item(title.textContent, description.value, dueDate.value, priority.value, project.textContent);
+  let editedItem = new Item(title.value, description.value, dueDate.value, priority.value, project.value);
   localStorage.setItem(editedItem.identifier, JSON.stringify(editedItem));
 
         // title.value = '';
