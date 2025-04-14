@@ -360,7 +360,10 @@ form{
   margin-left: 10px;
 }
 
-@media (max-width: 500px) {
+@media only screen 
+    and (width: 393px) 
+    and (height: 852px) 
+    and (-webkit-device-pixel-ratio: 3) {
   .myProjects {
     display: flex;
     flex-direction: column;
