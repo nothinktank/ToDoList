@@ -361,8 +361,8 @@ form{
 }
 
 @media only screen 
-    and (width: 393px) 
-    and (height: 852px) 
+    and (width: 390px) 
+    and (height: 844px) 
     and (-webkit-device-pixel-ratio: 3) {
   .myProjects {
     display: flex;
