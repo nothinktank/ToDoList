@@ -188,7 +188,7 @@ function addPopupFunctionToNewEditBtnsAndRemoveExistingItem(){
     let description = document.querySelector('#edit-description');
     let dueDate = document.querySelector('#edit-duedate');
     // let priority = document.querySelector('#edit-priority');
-    let priority = document.querySelector(`input[name="edit-priority"]`)
+    let priority = document.querySelectorAll(`input[name="edit-priority"]`) //this is a nodeList
     let projectName = document.querySelector('#edit-project');
 
   let btnIdentifier = scopedListOfEditBtns[i].getAttribute('project-item');
@@ -211,9 +211,13 @@ function addPopupFunctionToNewEditBtnsAndRemoveExistingItem(){
 
       description.value = parsedItem.description;
       dueDate.value = parsedItem.dueDate;
-      priority.value = parsedItem.priority;
+      // priority.value = parsedItem.priority;
 
-      // let radioBtn = document.querySelector('')
+      for(let i = 0; i < priority.length; i++) {
+        if (parsedItem.priority === priority[i].value){
+          priority[i].checked = true;
+        }
+      }
 
     
       //testing my theory, return the parsedItem.identifier 
