@@ -366,10 +366,10 @@ form{
     max-width: 500px;
   }
 
-
+/* 
       #project-container {
         max-width: 500px;
-      }
+      } */
 
       .myProjects {
         display: flex;
